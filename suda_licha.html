@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <title>Sudé nebo liché</title>
+  <style>
+    body{font-family:Arial,sans-serif;padding:40px;background:#fafafa}
+    h1{font-size:20px}
+    form{margin-top:20px}
+    input,button{padding:8px;margin:4px}
+    button{cursor:pointer;background:#333;color:#fff;border:0}
+  </style>
+</head>
+<body>
+  <h1>Zkontroluj, jestli je číslo sudé nebo liché</h1>
+  <form id="form">
+    <label for="cislo">Zadej celé kladné číslo:</label><br>
+    <input type="text" id="cislo" name="cislo">
+    <button type="submit">Zkontrolovat</button>
+  </form>
+
+  <script>
+    document.getElementById("form").addEventListener("submit",function(e){
+      e.preventDefault();
+      var vstup = document.getElementById("cislo").value;
+      var n = parseInt(vstup);
+      if(isNaN(n) || n <= 0){
+        alert("Zadej prosím celé kladné číslo!");
+        return;
+      }
+      if(n % 2 === 0){
+        alert("Číslo je sudé");
+      } else {
+        alert("Číslo je liché");
+      }
+    });
+  </script>
+</body>
+</html>
